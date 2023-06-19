@@ -2,7 +2,8 @@ import 'package:analog_clock/services/location.dart';
 import 'package:analog_clock/services/network.dart';
 
 class Weather {
-  static const String _apiKey = 'da5dcad290547709a2c872d144dc6dff';
+  // your openweathermap api key
+  static const String _apiKey = '';
   static const String _openWeather = 'https://api.openweathermap.org/data/2.5/weather';
 
   Future getLocationWeather() async {
