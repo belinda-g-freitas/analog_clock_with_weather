@@ -72,7 +72,7 @@ class ClockModel extends ChangeNotifier {
 
   /// Weather condition text for the current weather, for example  'cloudy'.
   WeatherCondition get weatherCondition => _weatherCondition;
-  WeatherCondition _weatherCondition = WeatherCondition.sunny;
+  WeatherCondition _weatherCondition = WeatherCondition.sun;
   set weatherCondition(WeatherCondition weatherCondition) {
     if (weatherCondition != _weatherCondition) {
       _weatherCondition = weatherCondition;
@@ -105,6 +105,8 @@ class ClockModel extends ChangeNotifier {
   /// Temperature unit of measurement with degrees.
   String get unitString {
     switch (unit) {
+      case TemperatureUnit.kelvin:
+        return '°K';
       case TemperatureUnit.fahrenheit:
         return '°F';
       case TemperatureUnit.celsius:
@@ -115,8 +117,10 @@ class ClockModel extends ChangeNotifier {
 
   num _convertFromCelsius(num degreesCelsius) {
     switch (unit) {
+      case TemperatureUnit.kelvin:
+        return degreesCelsius + 273.15;
       case TemperatureUnit.fahrenheit:
-        return 32.0 + degreesCelsius * 9.0 / 5.0;
+        return 32 + degreesCelsius * 9 / 5;
       case TemperatureUnit.celsius:
       default:
         return degreesCelsius;
@@ -125,8 +129,10 @@ class ClockModel extends ChangeNotifier {
 
   num _convertToCelsius(num degrees) {
     switch (unit) {
+      case TemperatureUnit.kelvin:
+        return degrees - 273.15;
       case TemperatureUnit.fahrenheit:
-        return (degrees - 32.0) * 5.0 / 9.0;
+        return (degrees - 32.0) * 5 / 9;
       case TemperatureUnit.celsius:
       default:
         return degrees;
@@ -135,10 +141,20 @@ class ClockModel extends ChangeNotifier {
 }
 
 /// Weather condition in English.
-enum WeatherCondition { cloudy, foggy, rainy, snowy, sunny, thunderstorm, windy }
+enum WeatherCondition {
+  thunderstorm,
+  drizzle,
+  rain,
+  snow,
+  sun,
+  fogg,
+  wind,
+  atmosphere,
+  cloud,
+}
 
 /// Temperature unit of measurement.
-enum TemperatureUnit { celsius, fahrenheit }
+enum TemperatureUnit { kelvin, celsius, fahrenheit }
 
 /// Removes the enum type and returns the value as a String.
 String enumToString(e) => e.toString().split('.').last.capitalizeFirst!;

@@ -45,13 +45,13 @@ class _ClockState extends State<Clock> {
   Timer? _timer;
 
   final weatherMap = {
-    WeatherCondition.sunny: WeatherIcons.sun,
-    WeatherCondition.cloudy: WeatherIcons.cloudSolid,
-    WeatherCondition.foggy: WeatherIcons.smogSolid,
-    WeatherCondition.rainy: WeatherIcons.cloudRainSolid,
+    WeatherCondition.sun: WeatherIcons.sun,
+    WeatherCondition.cloud: WeatherIcons.cloudSolid,
+    // WeatherCondition.foggy: WeatherIcons.smogSolid,
+    WeatherCondition.rain: WeatherIcons.cloudRainSolid,
     WeatherCondition.thunderstorm: WeatherIcons.boltSolid,
-    WeatherCondition.snowy: WeatherIcons.cloudMeatballSolid,
-    WeatherCondition.windy: WeatherIcons.windSolid,
+    WeatherCondition.snow: WeatherIcons.cloudMeatballSolid,
+    WeatherCondition.wind: WeatherIcons.windSolid,
   };
 
   @override

@@ -31,7 +31,6 @@ Future<void> main() async {
       // await windowManager.setResizable(false);
       await windowManager.setIcon('assets/icons/clock.svg');
       if (Platform.isMacOS) await windowManager.setVisibleOnAllWorkspaces(true);
-      // await windowManager.
     });
   }
   

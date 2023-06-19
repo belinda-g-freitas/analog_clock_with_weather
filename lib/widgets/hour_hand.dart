@@ -30,10 +30,11 @@ class HourHand extends StatelessWidget {
               height: 9 * unit,
               decoration: BoxDecoration(color: customTheme.primaryColor, borderRadius: BorderRadius.circular(30)),
               child: Container(
-                margin: const EdgeInsets.fromLTRB(5, 12, 5, 40),
+                margin: const EdgeInsets.fromLTRB(5, 12, 5, 45),
                 decoration: BoxDecoration(
-                    color: Theme.of(context).brightness == Brightness.light ? Colors.green : Colors.red[900],
-                    borderRadius: BorderRadius.circular(30)),
+                  color: Theme.of(context).brightness == Brightness.light ? Colors.green : Colors.red[900],
+                  borderRadius: BorderRadius.circular(30),
+                ),
               ),
             ),
           ),
